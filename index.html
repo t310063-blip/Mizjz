@@ -1,249 +1,145 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高中三年學習歷程 | 探究與實作精選</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    
+<div class="ez-container">
     <style>
-        :root {
-            /* 莫蘭迪冷色系設定 */
-            --morandi-blue: #93a2b7;    /* 灰藍色 */
-            --morandi-green: #a3b18a;   /* 莫蘭迪綠 */
-            --dark-slate: #58697d;      /* 石板灰藍 */
-            --bg-color: #e9ecef;        /* 背景淺灰 */
-            --text-main: #3d405b;       /* 深沈文字色 */
-            --card-white: rgba(255, 255, 255, 0.85);
-        }
-
-        body {
+        /* 針對 EZpage 的容器化樣式 */
+        .ez-container {
             font-family: 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-color);
-            background-image: linear-gradient(135deg, #dee2e6 0%, #adb5bd 100%);
-            background-attachment: fixed;
-            color: var(--text-main);
+            background: linear-gradient(135deg, #e9ecef 0%, #adb5bd 100%);
+            color: #3d405b;
+            padding-bottom: 50px;
+            min-height: 100vh;
+        }
+
+        .ez-hero {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .ez-hero h1 {
+            font-size: 3rem;
+            color: #58697d;
+            letter-spacing: 10px;
             margin: 0;
-            line-height: 1.8;
-            scroll-behavior: smooth;
+            /* 預設載入動畫 */
+            animation: ezFadeDown 1s ease-out;
         }
 
-        /* 導航 */
-        nav {
-            position: fixed;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            z-index: 1000;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        nav a {
-            margin: 0 20px;
-            text-decoration: none;
-            color: var(--dark-slate);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--morandi-blue);
-        }
-
-        /* Hero 區塊 */
-        .hero {
-            height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+        .ez-section {
+            max-width: 800px;
+            margin: 40px auto;
             padding: 20px;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            color: var(--dark-slate);
-            letter-spacing: 4px;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            color: #6c757d;
-            font-weight: 300;
-            max-width: 600px;
-        }
-
-        /* 時間軸與內容 */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
-
-        .section-box {
-            margin-bottom: 80px;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s ease;
-        }
-
-        .section-box.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .grade-tag {
-            font-size: 1.2rem;
+        /* 莫蘭迪風格標籤 */
+        .ez-tag {
+            background: #58697d;
             color: white;
-            background: var(--dark-slate);
-            display: inline-block;
-            padding: 4px 25px;
-            border-radius: 50px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(88, 105, 125, 0.2);
-        }
-
-        /* 卡片設計 */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--card-white);
-            padding: 35px;
+            padding: 5px 20px;
             border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.3);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: all 0.4s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(147, 162, 183, 0.2);
-            background: white;
-        }
-
-        .card h3 {
-            color: var(--dark-slate);
-            margin-top: 0;
-            border-bottom: 2px solid var(--morandi-blue);
-            padding-bottom: 10px;
             display: inline-block;
-        }
-
-        /* 莫蘭迪按鈕 */
-        .btn-link {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 12px 30px;
-            background: var(--morandi-blue);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 400;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-link:hover {
-            background: var(--dark-slate);
-            letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(88, 105, 125, 0.3);
-        }
-
-        footer {
-            text-align: center;
-            padding: 60px;
-            color: #adb5bd;
+            margin-bottom: 15px;
             font-size: 0.9rem;
         }
 
+        /* 卡片設計 */
+        .ez-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border-left: 6px solid #93a2b7;
+        }
+
+        .ez-card:hover {
+            transform: translateY(-5px);
+            background: #ffffff;
+        }
+
+        /* 按鍵樣式 */
+        .ez-btn {
+            display: inline-block;
+            background: #93a2b7;
+            color: white !important;
+            padding: 10px 25px;
+            text-decoration: none !important;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .ez-btn:hover {
+            background: #58697d;
+        }
+
+        /* 滾動動畫效果：CSS 實作 */
+        @keyframes ezFadeDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 針對內容的顯現動畫 */
+        .reveal-on-scroll {
+            transition: all 0.8s;
+        }
     </style>
-</head>
-<body>
 
-    <nav>
-        <a href="#g1">高一探索</a>
-        <a href="#g2">高二深化</a>
-        <a href="#g3">高三整合</a>
-    </nav>
-
-    <header class="hero animate__animated animate__fadeIn">
-        <h1>[曾曾宥欣]</h1>
-        <p>高中三年學習歷程綜合彙整</p>
-        <div style="margin-top: 30px; color: var(--dark-slate); font-size: 0.8rem; letter-spacing: 2px;">現在就讀大華高中</div>
-    </header>
-
-    <div class="container">
-        
-        <section class="section-box" id="g1">
-            <div class="grade-tag">Grade 10 / 高一</div>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>自主學習：程式初探</h3>
-                    <p>利用課餘時間自學基礎邏輯，建立對資訊科學的興趣與初步認識。</p>
-                    <a href="#" class="btn-link">查看學習紀錄</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-box" id="g2">
-            <div class="grade-tag">Grade 11 / 高二</div>
-            <div class="card-grid">
-                <div class="card" style="border-left: 5px solid var(--morandi-green);">
-                    <h3>探究與實作</h3>
-                    <p>針對社會現象進行深入觀察與實作分析，透過嚴謹的流程進行資料彙整與呈現。此份報告展示了我的邏輯思辨與解決問題的能力。</p>
-                    <a href="https://www.canva.com/design/DAG_g2w9j3w/b72oLpYu6oJdsdMV-sQFww/edit?utm_content=DAG_g2w9j3w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" 
-                       target="_blank" 
-                       class="btn-link">
-                       開啟專案檔案 (Canva)
-                    </a>
-                </div>
-                <div class="card">
-                    <h3>學科競賽與獎勵</h3>
-                    <p>在校內科學競賽中獲得優等，鍛鍊了在壓力下穩定發揮的心智。</p>
-                    <a href="#" class="btn-link">檢視證書</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-box" id="g3">
-            <div class="grade-tag">Grade 12 / 高三</div>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>綜合反思與展望</h3>
-                    <p>總結高中三年的學習軌跡，將各項表現串聯成完整的個人品牌故事。</p>
-                    <a href="#" class="btn-link">閱讀心得總結</a>
-                </div>
-            </div>
-        </section>
-
+    <div class="ez-hero">
+        <h1>曾曾宥欣</h1>
+        <p>高中三年學習歷程檔案彙整</p>
     </div>
 
-    <footer>
-        <p>Designed for College Application Portfolio | 2024</p>
+    <div class="ez-section">
+        <div class="ez-tag">高一 / 探索期</div>
+        <div class="ez-card">
+            <h3>自主學習：基礎程式開發</h3>
+            <p>建立對資訊科學的興趣，訓練邏輯拆解與基礎腳本撰寫能力。</p>
+            <a href="#" class="ez-btn">查看紀錄</a>
+        </div>
+    </div>
+
+    <div class="ez-section">
+        <div class="ez-tag">高二 / 深化期</div>
+        <div class="ez-card" style="border-left-color: #a3b18a;">
+            <h3>探究與實作</h3>
+            <p>針對社會現象進行深入觀察，展現我的邏輯思辨、問卷設計與解決問題的能力。</p>
+            <a href="https://www.canva.com/design/DAG_g2w9j3w/b72oLpYu6oJdsdMV-sQFww/edit?utm_content=DAG_g2w9j3w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" 
+               target="_blank" class="ez-btn">開啟專案檔案 (Canva)</a>
+        </div>
+    </div>
+
+    <div class="ez-section">
+        <div class="ez-tag">高三 / 整合期</div>
+        <div class="ez-card">
+            <h3>綜合反思與展望</h3>
+            <p>將三年的學術表現與活動串連，展現對未來大學生活的準備與目標。</p>
+            <a href="#" class="ez-btn">閱讀心得</a>
+        </div>
+    </div>
+
+    <footer style="text-align:center; padding: 40px; color: #888;">
+        Portfolio of Tseng Tseng, You-Xin © 2024
     </footer>
+</div>
 
-    <script>
-        // 控制滾動時顯現動畫
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
+<script>
+    // EZpage 專用動畫腳本
+    const boxes = document.querySelectorAll('.ez-section');
+    window.addEventListener('scroll', checkBoxes);
 
-        document.querySelectorAll('.section-box').forEach(box => {
-            observer.observe(box);
+    function checkBoxes() {
+        const triggerBottom = window.innerHeight / 5 * 4;
+        boxes.forEach(box => {
+            const boxTop = box.getBoundingClientRect().top;
+            if(boxTop < triggerBottom) {
+                box.style.opacity = "1";
+                box.style.transform = "translateY(0)";
+            } else {
+                box.style.opacity = "0";
+                box.style.transform = "translateY(50px)";
+            }
         });
-    </script>
-</body>
-</html>
+    }
+    // 初始執行一次
+    checkBoxes();
+</script>
