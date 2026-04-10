@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高中三年學習歷程 | 探究與實作精選</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        :root {
+            /* 莫蘭迪冷色系設定 */
+            --morandi-blue: #93a2b7;    /* 灰藍色 */
+            --morandi-green: #a3b18a;   /* 莫蘭迪綠 */
+            --dark-slate: #58697d;      /* 石板灰藍 */
+            --bg-color: #e9ecef;        /* 背景淺灰 */
+            --text-main: #3d405b;       /* 深沈文字色 */
+            --card-white: rgba(255, 255, 255, 0.85);
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            background-image: linear-gradient(135deg, #dee2e6 0%, #adb5bd 100%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.8;
+            scroll-behavior: smooth;
+        }
+
+        /* 導航 */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 1000;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: var(--dark-slate);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--morandi-blue);
+        }
+
+        /* Hero 區塊 */
+        .hero {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--dark-slate);
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #6c757d;
+            font-weight: 300;
+            max-width: 600px;
+        }
+
+        /* 時間軸與內容 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .section-box {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease;
+        }
+
+        .section-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .grade-tag {
+            font-size: 1.2rem;
+            color: white;
+            background: var(--dark-slate);
+            display: inline-block;
+            padding: 4px 25px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(88, 105, 125, 0.2);
+        }
+
+        /* 卡片設計 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-white);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(147, 162, 183, 0.2);
+            background: white;
+        }
+
+        .card h3 {
+            color: var(--dark-slate);
+            margin-top: 0;
+            border-bottom: 2px solid var(--morandi-blue);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* 莫蘭迪按鈕 */
+        .btn-link {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 30px;
+            background: var(--morandi-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 400;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-link:hover {
+            background: var(--dark-slate);
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(88, 105, 125, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px;
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#g1">高一探索</a>
+        <a href="#g2">高二深化</a>
+        <a href="#g3">高三整合</a>
+    </nav>
+
+    <header class="hero animate__animated animate__fadeIn">
+        <h1>[曾曾宥欣]</h1>
+        <p>高中三年學習歷程綜合彙整</p>
+        <div style="margin-top: 30px; color: var(--dark-slate); font-size: 0.8rem; letter-spacing: 2px;">現在就讀大華高中</div>
+    </header>
+
+    <div class="container">
+        
+        <section class="section-box" id="g1">
+            <div class="grade-tag">Grade 10 / 高一</div>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>自主學習：程式初探</h3>
+                    <p>利用課餘時間自學基礎邏輯，建立對資訊科學的興趣與初步認識。</p>
+                    <a href="#" class="btn-link">查看學習紀錄</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-box" id="g2">
+            <div class="grade-tag">Grade 11 / 高二</div>
+            <div class="card-grid">
+                <div class="card" style="border-left: 5px solid var(--morandi-green);">
+                    <h3>探究與實作</h3>
+                    <p>針對社會現象進行深入觀察與實作分析，透過嚴謹的流程進行資料彙整與呈現。此份報告展示了我的邏輯思辨與解決問題的能力。</p>
+                    <a href="https://www.canva.com/design/DAG_g2w9j3w/b72oLpYu6oJdsdMV-sQFww/edit?utm_content=DAG_g2w9j3w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" 
+                       target="_blank" 
+                       class="btn-link">
+                       開啟專案檔案 (Canva)
+                    </a>
+                </div>
+                <div class="card">
+                    <h3>學科競賽與獎勵</h3>
+                    <p>在校內科學競賽中獲得優等，鍛鍊了在壓力下穩定發揮的心智。</p>
+                    <a href="#" class="btn-link">檢視證書</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-box" id="g3">
+            <div class="grade-tag">Grade 12 / 高三</div>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>綜合反思與展望</h3>
+                    <p>總結高中三年的學習軌跡，將各項表現串聯成完整的個人品牌故事。</p>
+                    <a href="#" class="btn-link">閱讀心得總結</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Designed for College Application Portfolio | 2024</p>
+    </footer>
+
+    <script>
+        // 控制滾動時顯現動畫
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section-box').forEach(box => {
+            observer.observe(box);
+        });
+    </script>
+</body>
+</html>
