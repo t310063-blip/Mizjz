@@ -1,145 +1,169 @@
 <div class="ez-container">
     <style>
-        /* 針對 EZpage 的容器化樣式 */
+        /* 莫蘭迪冷色調樣式表 */
         .ez-container {
             font-family: 'Noto Sans TC', sans-serif;
             background: linear-gradient(135deg, #e9ecef 0%, #adb5bd 100%);
             color: #3d405b;
-            padding-bottom: 50px;
+            padding-bottom: 60px;
             min-height: 100vh;
         }
 
+        /* 曾曾宥欣 主視覺 */
         .ez-hero {
-            padding: 80px 20px;
+            padding: 90px 20px 60px;
             text-align: center;
         }
 
         .ez-hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #58697d;
-            letter-spacing: 10px;
+            letter-spacing: 12px;
             margin: 0;
-            /* 預設載入動畫 */
-            animation: ezFadeDown 1s ease-out;
+            animation: ezFadeDown 1.2s ease-out;
+        }
+
+        .ez-hero p {
+            font-weight: 300;
+            color: #6c757d;
+            letter-spacing: 2px;
+            margin-top: 10px;
         }
 
         .ez-section {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
+            max-width: 850px;
+            margin: 50px auto;
+            padding: 0 20px;
+            /* 預設隱藏，由 JS 控制顯現 */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        /* 莫蘭迪風格標籤 */
+        /* 當區塊進入視線時的動畫類別 */
+        .ez-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .ez-tag {
             background: #58697d;
             color: white;
-            padding: 5px 20px;
-            border-radius: 20px;
+            padding: 6px 25px;
+            border-radius: 50px;
             display: inline-block;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* 卡片設計 */
         .ez-card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: 0.3s;
-            border-left: 6px solid #93a2b7;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.4s;
+            border-left: 8px solid #93a2b7;
         }
 
         .ez-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             background: #ffffff;
+            box-shadow: 0 15px 40px rgba(147, 162, 183, 0.3);
         }
 
-        /* 按鍵樣式 */
+        .ez-card h3 {
+            margin-top: 0;
+            color: #58697d;
+            font-size: 1.5rem;
+        }
+
+        /* 更新後的按鈕樣式 */
         .ez-btn {
             display: inline-block;
             background: #93a2b7;
             color: white !important;
-            padding: 10px 25px;
+            padding: 12px 30px;
             text-decoration: none !important;
-            border-radius: 5px;
-            margin-top: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
             transition: 0.3s;
-            font-weight: bold;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
         }
 
         .ez-btn:hover {
             background: #58697d;
+            box-shadow: 0 5px 15px rgba(88, 105, 125, 0.4);
         }
 
-        /* 滾動動畫效果：CSS 實作 */
         @keyframes ezFadeDown {
-            from { opacity: 0; transform: translateY(-20px); }
+            from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 針對內容的顯現動畫 */
-        .reveal-on-scroll {
-            transition: all 0.8s;
+        footer {
+            text-align: center;
+            padding: 60px;
+            color: #8e9aaf;
+            font-size: 0.9rem;
         }
     </style>
 
     <div class="ez-hero">
         <h1>曾曾宥欣</h1>
-        <p>高中三年學習歷程檔案彙整</p>
+        <p>114學年度上學期 | 探究與實作成果彙整</p>
     </div>
 
     <div class="ez-section">
-        <div class="ez-tag">高一 / 探索期</div>
-        <div class="ez-card">
-            <h3>自主學習：基礎程式開發</h3>
-            <p>建立對資訊科學的興趣，訓練邏輯拆解與基礎腳本撰寫能力。</p>
-            <a href="#" class="ez-btn">查看紀錄</a>
-        </div>
-    </div>
-
-    <div class="ez-section">
-        <div class="ez-tag">高二 / 深化期</div>
+        <div class="ez-tag">Grade 11 / 核心專題</div>
         <div class="ez-card" style="border-left-color: #a3b18a;">
-            <h3>探究與實作</h3>
-            <p>針對社會現象進行深入觀察，展現我的邏輯思辨、問卷設計與解決問題的能力。</p>
-            <a href="https://www.canva.com/design/DAG_g2w9j3w/b72oLpYu6oJdsdMV-sQFww/edit?utm_content=DAG_g2w9j3w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" 
-               target="_blank" class="ez-btn">開啟專案檔案 (Canva)</a>
+            <h3>探究與實作：彭巴效應</h3>
+            <p><strong>研究摘要：</strong>本探究探討在不同條件下，熱水是否可能比冷水更快結冰。透過溫差、溶液種類及蒸發三項實驗，發現彭巴效應並非每次都會出現，其中以「蒸發」對結冰速度的影響最為明顯。</p>
+            
+            <a href="javascript:void(0);" onclick="alert('【專案詳情】\n主題：彭巴效應探究\n主要發現：溫差10°時彭巴效應最明顯，且無蓋容器因蒸發快，結冰速度比有蓋快約10分鐘。\n結論：實驗驗證了蒸發是導致結果差異的重要因素。');" class="ez-btn">
+                開啟專案檔案詳情
+            </a>
         </div>
     </div>
 
     <div class="ez-section">
-        <div class="ez-tag">高三 / 整合期</div>
+        <div class="ez-tag">Grade 12 / 綜合反思</div>
         <div class="ez-card">
-            <h3>綜合反思與展望</h3>
-            <p>將三年的學術表現與活動串連，展現對未來大學生活的準備與目標。</p>
-            <a href="#" class="ez-btn">閱讀心得</a>
+            <h3>未來展望與個人感思</h3>
+            <p>透過彭巴效應實驗，我學會了以開放態度看待數據，並在小組合作中提升了溝通與解決問題的技巧。未來我希望能使用更精密的工具減少誤差，進一步探討生活中的科學現象。</p>
+            <a href="#" class="ez-btn">閱讀全文</a>
         </div>
     </div>
 
-    <footer style="text-align:center; padding: 40px; color: #888;">
-        Portfolio of Tseng Tseng, You-Xin © 2024
+    <footer>
+        私立大華高級中學 二勤9 曾曾宥欣 © 2024
     </footer>
 </div>
 
 <script>
-    // EZpage 專用動畫腳本
-    const boxes = document.querySelectorAll('.ez-section');
-    window.addEventListener('scroll', checkBoxes);
+    /**
+     * 雙向滾動動畫邏輯 (EZpage 專用強化版)
+     * 確保往上滑、往下滑都有動畫感
+     */
+    function reveal() {
+        var reveals = document.querySelectorAll(".ez-section");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 100; // 觸發距離
 
-    function checkBoxes() {
-        const triggerBottom = window.innerHeight / 5 * 4;
-        boxes.forEach(box => {
-            const boxTop = box.getBoundingClientRect().top;
-            if(boxTop < triggerBottom) {
-                box.style.opacity = "1";
-                box.style.transform = "translateY(0)";
+            if (elementTop < windowHeight - elementVisible && elementTop > -reveals[i].offsetHeight) {
+                reveals[i].classList.add("active");
             } else {
-                box.style.opacity = "0";
-                box.style.transform = "translateY(50px)";
+                // 往上滑走時移除類別，創造重複動畫感
+                reveals[i].classList.remove("active");
             }
-        });
+        }
     }
-    // 初始執行一次
-    checkBoxes();
+
+    window.addEventListener("scroll", reveal);
+    // 初始執行一次，確保首屏內容顯示
+    reveal();
 </script>
